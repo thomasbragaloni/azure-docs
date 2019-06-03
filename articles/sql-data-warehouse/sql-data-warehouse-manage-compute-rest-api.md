@@ -46,6 +46,8 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ```
 
 ## Check database state
+> [!NOTE]
+> Currently check database state might return ONLINE while database is completing the online worfklow. You might need to add a 2 to 3 minute delay in your application logic if making use of the code to trigger connections based on check database state return value.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
